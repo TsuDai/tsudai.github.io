@@ -22,22 +22,18 @@ header {
     background: rgb(75, 102, 182);
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     color: white;
-    padding: 1rem 1rem 1rem 3rem;
+    padding: 1rem 1rem 1rem 1.5rem;
 }
 
 /*main*/
 main {
     grid-area: center;
     background: rgb(230, 209, 192);
-    padding: 1rem;
+    padding: 2rem;
     text-align: center;
 }
 
-.avatar {
-}
-
 .myname {
-    /*text-align: center;*/
     font-size: 30px;
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     color: #444444;
@@ -45,12 +41,29 @@ main {
 }
 
 .belonging {
-    /*text-align: center;*/
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     font-size: 20px;
     font-weight: lighter;
     color: #666666;
     line-height: 0.3;
+}
+
+ul.network-icon {
+    display: inline-flex;   /*iconを横に並べる*/
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+ul.network-icon li {
+    margin-right: 0.7rem;   /*icon同士の間隔を開ける*/
+}
+
+.igmail, .itwit, .igs, .igh {
+    color: rgb(75, 102, 182);
 }
 
 /*left column*/
