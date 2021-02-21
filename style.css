@@ -1,13 +1,16 @@
+/*To use Google Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 /*body全体*/
 body {
     font-size: 2rem;
     /*width: 800px;*/
     margin: 0 auto;
-    min-height: 100vh; /*100vhはページと同じ高さ*/
+    height: 100vh; /*100vhはページと同じ高さ。min-height: 100vhとするとスクロールできない？*/
     display: grid;
     grid-template:
         "... ...... ...... ...... ...... ...... ..."
-        "... header header header header header ..." 70px
+        "... header header header header header ..." 50px
         "... ...... ...... ...... ...... ...... ..."
         "... left   ...... center ...... right  ..." 1fr /*縦の長さを引き伸ばす。frは比率を指定可*/
         "... ...... ...... ...... ...... ...... ..."
@@ -21,8 +24,9 @@ header {
     grid-area: header;
     background: rgb(75, 102, 182);
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-size: 28px;
     color: white;
-    padding: 1rem 1rem 1rem 1.5rem;
+    padding: 0.5rem 1rem 0.5rem 1.5rem;
 }
 
 /*main*/
@@ -31,6 +35,7 @@ main {
     background: rgb(230, 209, 192);
     padding: 2rem;
     text-align: center;
+    overflow-y: scroll; /*ヘッダー位置固定のために必要*/
 }
 
 .myname {
@@ -59,7 +64,8 @@ ul.network-icon {
     margin-bottom: 1rem;
 }
 ul.network-icon li {
-    margin-right: 0.7rem;   /*icon同士の間隔を開ける*/
+    margin-right: 0.5rem;   /*icon同士の間隔を開ける*/
+    margin-left: 0.5rem;   /*icon同士の間隔を開ける*/
 }
 
 .igmail, .itwit, .igs, .igh {
@@ -70,6 +76,7 @@ ul.network-icon li {
 nav {
     grid-area: left;
     background: rgb(214, 193, 176);
+    overflow-y: scroll; /*ヘッダー位置固定のために必要*/
 }
 
 /*right column*/
@@ -80,6 +87,7 @@ aside {
     grid-area: right;
     background: rgb(214, 193, 176);
     padding: 1rem 1rem 1rem 1rem;
+    overflow-y: scroll; /*ヘッダー位置固定のために必要*/
 }
 
 .btn{
@@ -100,6 +108,7 @@ aside {
 footer {
     grid-area: footer;
     background: rgb(75, 102, 182);
+    overflow-y: scroll; /*ヘッダー位置固定のために必要かと思ったけどフッターも固定される*/
 }
 
 /*responcible*/
