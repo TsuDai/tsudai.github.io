@@ -1,6 +1,8 @@
 /*To use Google Fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
+
+
 /*body全体*/
 body {
     font-size: 2rem;
@@ -9,15 +11,17 @@ body {
     height: 100vh; /*100vhはページと同じ高さ。min-height: 100vhとするとスクロールできない？*/
     display: grid;
     grid-template:
-        "... ...... ...... ...... ...... ...... ..."
-        "... header header header header header ..." 50px
-        "... ...... ...... ...... ...... ...... ..."
-        "... left   ...... center ...... right  ..." 1fr /*縦の長さを引き伸ばす。frは比率を指定可*/
-        "... ...... ...... ...... ...... ...... ..."
-        "... footer footer footer footer footer ..." 50px
-        "... ...... ...... ...... ...... ...... ..."
-        / auto 0px auto 1fr auto 2fr auto;　/*minmaxとか使うと良いかも*/
+        "... ...... ..."
+        "... header ..." 50px
+        "... ...... ..."
+        "... center ..." 1fr /*縦の長さを引き伸ばす。frは比率を指定可*/
+        "... ...... ..."
+        "... footer ..." 50px
+        "... ...... ..."
+        / auto 1fr auto;　/*minmaxとか使うと良いかも*/
 }
+
+
 
 /*header*/
 header {
@@ -29,22 +33,46 @@ header {
     padding: 0.5rem 1rem 0.5rem 1.5rem;
 }
 
+
+
 /*main*/
 main {
     grid-area: center;
     background: rgb(230, 209, 192);
-    padding: 2rem;
-    text-align: center;
-    overflow-y: scroll; /*ヘッダー位置固定のために必要*/
+    display: grid;
+    grid-template: 
+        "... ..... ..... ..... ..... ..... ..."
+        "... itemA ..... itemB ..... itemC ..." 200px
+        "... itemA ..... ..... ..... ..... ..."
+        "... itemA ..... itemD ..... itemE ..." 200px
+        "... ..... ..... ..... ..... ..... ..."
+        / auto 2fr auto 1fr auto 1fr auto;
 }
-
+/*grid area in main*/
+.itemA {
+    grid-area: itemA;
+    justify-self: center;
+    text-align: center;
+}
+.itemB {
+    grid-area: itemB;
+}
+.itemC {
+    grid-area: itemC;
+}
+.itemD {
+    grid-area: itemD;
+}
+.itemE {
+    grid-area: itemE;
+}
+/*itemA*/
 .myname {
     font-size: 30px;
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     color: #444444;
     line-height: 0.7;
 }
-
 .belonging {
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     font-size: 20px;
@@ -52,7 +80,6 @@ main {
     color: #666666;
     line-height: 0.3;
 }
-
 ul.network-icon {
     display: inline-flex;   /*iconを横に並べる*/
     flex-direction: row;
@@ -67,42 +94,26 @@ ul.network-icon li {
     margin-right: 0.5rem;   /*icon同士の間隔を開ける*/
     margin-left: 0.5rem;   /*icon同士の間隔を開ける*/
 }
-
 .igmail, .itwit, .igs, .igh {
     color: rgb(75, 102, 182);
 }
-
-/*left column*/
-nav {
-    grid-area: left;
-    background: rgb(214, 193, 176);
-    overflow-y: scroll; /*ヘッダー位置固定のために必要*/
-}
-
-/*right column*/
-aside {
-    display: flex; /*アイテムをいろんな位置に移動できる。gridでもできる？*/
-    flex-direction: column; /*flex*/
-    justify-content: space-between; /*flex*/
-    grid-area: right;
-    background: rgb(214, 193, 176);
-    padding: 1rem 1rem 1rem 1rem;
-    overflow-y: scroll; /*ヘッダー位置固定のために必要*/
-}
-
-.btn{
+/*itemB-E*/
+main > a {
     display: inline-block; /*インライン要素のリンクをインラインブロックに変更してる*/
     padding: 1rem 2rem;
     line-height: 1;
+    width: 10rem;
     font-family: Arial, Helvetica, sans-serif;
     color: #fff;
     background-color: rgb(75, 102, 182);
     text-decoration: none;
     border-radius: 3px; /* 角丸設定 */
 }
-.btn:hover{
+main > a:hover {
     background-color: #3390db;
 }
+
+
 
 /*footer*/
 footer {
@@ -111,14 +122,21 @@ footer {
     overflow-y: scroll; /*ヘッダー位置固定のために必要かと思ったけどフッターも固定される*/
 }
 
-/*responcible*/
+
+
+/*responcible screen*/
 @media screen and (max-width: 700px) {
-    body {
+    main {
         grid-template:
-            "header" 70px
-            "center" 1fr  /*引き伸ばすのでfr*/
-            "left  " 0px
-            "right "      /*高さ指定しなければコンテンツの高さになる*/
-            "footer" 50px;
+            "....." 0.5fr
+            "itemA" 4fr
+            "....." 0.5fr
+            "itemB" 1fr  
+            "itemC" 1fr
+            "itemD" 1fr
+            "itemE" 1fr;
+    }
+    main > a {
+        width: 100%;
     }
 }
