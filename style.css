@@ -6,9 +6,8 @@
 /*body全体*/
 body {
     font-size: 2rem;
-    /*width: 800px;*/
     margin: 0 auto;
-    height: 100vh; /*100vhはページと同じ高さ。min-height: 100vhとするとスクロールできない？*/
+    min-height: 100vh; /*100vhはページと同じ高さ。min-height: 100vhとするとスクロールできない？*/
     display: grid;
     grid-template:
         "... ...... ..."
@@ -119,13 +118,16 @@ main > a:hover {
 footer {
     grid-area: footer;
     background: rgb(75, 102, 182);
-    overflow-y: scroll; /*ヘッダー位置固定のために必要かと思ったけどフッターも固定される*/
 }
 
 
 
 /*responcible screen*/
 @media screen and (max-width: 700px) {
+    header {
+        position: fixed;
+        width: 100vw;
+    }
     main {
         grid-template:
             "....." 0.5fr
@@ -137,6 +139,6 @@ footer {
             "itemE" 1fr;
     }
     main > a {
-        width: 100%;
+        width: 50vw;
     }
 }
